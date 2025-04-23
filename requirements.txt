@@ -1,0 +1,10 @@
+langchain>=0.1.14
+langgraph>=0.0.32
+openai>=1.14.0
+tavily-python>=0.3.0
+python-dotenv>=1.0.1
+tqdm>=4.66.2
+requests>=2.31.0
+streamlit>=1.33.0
+black>=24.3.0
+flake8>=7.0.0

@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Streamlit logs
+*.log
+
+# Models
+models/
+
+# Output logs
+research_output/
+
+# Environment
+.env
+
+# VS Code settings
+.vscode/
