@@ -3,23 +3,26 @@ import json
 from datetime import datetime
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-from langchain_community.llms import GPT4All
+from langchain_community.llms import Ollama
 from langchain_core.runnables import RunnableSequence
 
-llm = GPT4All(model="/Users/Chakradhar/AI_Agentic_System/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf", verbose=True)
+llm = Ollama(model="mistral")
 
 template = """
-Based on the following research context, answer the user's question clearly.
+You are a helpful assistant. Below is the conversation history followed by new research context. Use both to provide a clear, grounded, and accurate answer. Stay on topic and do not invent unrelated facts.
 
-Research:
+Conversation History:
+{history}
+
+Research Context:
 {context}
 
-Question:
+User's Question:
 {query}
 
 Answer (in a clear and complete paragraph):"""
 
-prompt = PromptTemplate(input_variables=["context", "query"], template=template)
+prompt = PromptTemplate(input_variables=["history", "context", "query"], template=template)
 
 # Create the sequence of operations
 answer_agent = prompt | llm
@@ -32,8 +35,8 @@ def save_answer_output(context: str, query: str, answer: str):
         json.dump({"context": context, "query": query, "answer": answer}, f, indent=4)
 
 # Main function to generate the answer
-def generate_answer(context: str, query: str) -> str:
-    response = answer_agent.invoke({"context": context, "query": query})
+def generate_answer(context: str, query: str, history: str = "") -> str:
+    response = answer_agent.invoke({"context": context, "query": query, "history": history})
     
     if not response.strip().endswith('.'):
         response += " [The model response might be incomplete.]"

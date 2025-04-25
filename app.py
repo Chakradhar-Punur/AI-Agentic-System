@@ -16,8 +16,10 @@ if st.button('Get Answer'):
             st.session_state.graph_state.update(result)
             
             st.success("Done!")
-            st.write("Final Answer:")
+
+            st.markdown("#### Final Answer")
             st.write(result["final_answer"])
+            st.divider()
     else:
         st.error("Please enter a research question.")
 

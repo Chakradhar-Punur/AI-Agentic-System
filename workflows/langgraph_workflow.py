@@ -21,8 +21,15 @@ def research_node(state):
     return {"query": query, "context": context, "history": history}
 
 def answer_node(state):
-    answer = generate_answer(state["context"], state["query"])
     history = state.get("history", [])
+    
+    history_str = "\n".join([
+        f"You: {turn['query']}" if "query" in turn else f"Assistant: {turn['answer']}"
+        for turn in history
+    ])
+    
+    answer = generate_answer(state["context"], state["query"], history_str)
+    
     history.append({"role": "assistant", "answer": answer})
     return {"final_answer": answer, "history": history}
 
