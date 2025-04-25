@@ -42,17 +42,27 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Download your GPT4All model (place in ./models/)
+### 4. Pull the Mistral model using Ollama
 
-e.g., ./models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
-
-### 5. Run Streamlit app
+Make sure you have [Ollama](https://ollama.com/) installed, then run:
 
 ```
-streamlit run app.py
+ollama pull mistral
 ```
 
-### 6. Note: If you want to run the code in the terminal, run the following code
+> This ensures the required model is available locally via Ollama.
+
+### 5. Start the full system (Ollama + Streamlit) using:
+
+```
+./run_app.sh
+```
+
+> This script automatically starts the Ollama server with the Mistral model and launches the Streamlit app.
+
+## Development mode
+
+If you want to run the code in the terminal, run the following command:
 
 ```
 python main.py
