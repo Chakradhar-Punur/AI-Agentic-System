@@ -60,13 +60,6 @@ ollama pull mistral
 
 > This script automatically starts the Ollama server with the Mistral model and launches the Streamlit app.
 
-## Development mode
-
-If you want to run the code in the terminal, run the following command:
-
-```
-python main.py
-```
 
 ## Usage
 
