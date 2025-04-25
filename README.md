@@ -1,13 +1,13 @@
 # AI-Agentic-System
 
-## AI Agentic System with LangGraph, GPT4All & Streamlit
+## AI Agentic System with LangGraph, Ollama & Streamlit
 
-This project is a dual-agent research assistant powered by LangChain, LangGraph, and a local LLM (TinyLlama via GPT4All). It uses web search tools to gather information and a prompt-based answer engine to provide complete, contextual responses — all wrapped in a Streamlit front-end.
+This project is a dual-agent research assistant powered by **LangChain**, **LangGraph**, and **Ollama** (with the **Mistral model**). It uses web search tool to gather information and a prompt-based answer engine to provide complete, contextual responses — all wrapped in a **Streamlit** front-end.
 
 ## Features
 
 - **Research Agent** — Uses Tavily API to search the web for current and reliable information.
-- **Answer Agent** — Uses GPT4All (TinyLlama model) to generate responses based on research context.
+- **Answer Agent** — Uses **Ollama** (with the **Mistral model**) to generate responses based on research context.
 - **LangGraph Workflow** — Connects agents into a sequential graph with persistent memory.
 - **State Persistence** — Maintains conversation history and allows follow-up queries.
 - **Streamlit UI** — Provides a clean, user-friendly interface for interactive exploration.
@@ -15,7 +15,7 @@ This project is a dual-agent research assistant powered by LangChain, LangGraph,
 ## Tech Stack
 
 - **LangChain** & **LangGraph** — Agent framework + state orchestration
-- **GPT4All / TinyLlama** — Local LLM for response generation
+- **Ollama** (with **Mistral model**) — Local LLM for response generation
 - **Tavily API** — Real-time web search tool
 - **Streamlit** — Front-end for interactive usage
 - Python 3.9+
